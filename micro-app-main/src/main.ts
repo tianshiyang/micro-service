@@ -5,5 +5,20 @@ import store from './store'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
 import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
+import { registerMicroApps, start } from 'qiankun'
 
 createApp(App).use(store).use(router).use(ElementPlus, { locale: zhCn }).mount('#app')
+
+// 注册微应用
+
+registerMicroApps([
+  {
+    name: 'micro-app-vue2',
+    entry: '//localhost:5000',
+    container: '#micro-app',
+    activeRule: '/micro-vue2'
+  }
+])
+
+// 启动
+start()

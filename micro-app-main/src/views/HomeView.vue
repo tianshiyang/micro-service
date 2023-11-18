@@ -9,6 +9,7 @@
       </el-header>
       <el-main>
         <router-view></router-view>
+        <div id="micro-app"></div>
       </el-main>
     </el-container>
   </el-container>

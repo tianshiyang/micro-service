@@ -1,6 +1,10 @@
 <template>
-  <router-view/>
+  <HomeView />
 </template>
+
+<script lang="ts" setup>
+import HomeView from "@/views/HomeView.vue"
+</script>
 
 <style lang="scss">
 body {
