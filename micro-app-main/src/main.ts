@@ -17,6 +17,11 @@ registerMicroApps([
     entry: '//localhost:5000',
     container: '#micro-app',
     activeRule: '/micro-vue2'
+  }, {
+    name: 'micro-app-vue3',
+    entry: '//localhost:7000',
+    container: '#micro-app',
+    activeRule: '/micro-vue3'
   }
 ])
 

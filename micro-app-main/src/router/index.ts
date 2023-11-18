@@ -4,9 +4,10 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
     name: 'home',
+    redirect: "/home",
     children: [
       {
-        path: "/",
+        path: "/home",
         component: () => import("@/views/AboutView.vue")
       }
     ]
