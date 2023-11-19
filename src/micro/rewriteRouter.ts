@@ -12,24 +12,26 @@ export const getNextRouter = () => nextRouter
 export const rewriteRouter = () => {
   // 处理history.go(), history.forward(), history.back()事件
   window.addEventListener("popstate", () => {
+    prevRouter = nextRouter
+    nextRouter = location.pathname
     handleRouter()
   })
 
   // 处理pushState -- 通过重写的方式
-  const rawPushState = history.pushState
-  history.pushState = (...args) => {
+  const rawPushState = window.history.pushState
+  window.history.pushState = (...args) => {
     prevRouter = location.pathname
-    rawPushState.apply(history, args)
+    rawPushState.apply(window.history, args)
     nextRouter = location.pathname
     handleRouter()
   }
 
   // 处理replaceState -- 通过重写的方式
-  const rawReplaceState = history.replaceState
-  history.pushState = (...args) => {
-    prevRouter = location.pathname
-    rawReplaceState.apply(history, args)
-    nextRouter = location.pathname
-    handleRouter()
-  }
+  // const rawReplaceState = window.history.replaceState
+  // window.history.replaceState = (...args) => {
+  //   prevRouter = location.pathname
+  //   rawReplaceState.apply(window.history, args)
+  //   nextRouter = location.pathname
+  //   handleRouter()
+  // }
 }
