@@ -10,11 +10,11 @@
       <el-icon><Setting /></el-icon>
       <span>主应用</span>
     </el-menu-item>
-    <el-menu-item index="2" @click="goPath('/micro-vue2/')">
+    <el-menu-item index="2" @click="goPath('/micro-vue2')">
       <el-icon><Location /></el-icon>
       <span>Vue2子应用</span>
     </el-menu-item>
-    <el-menu-item index="3" @click="goPath('/micro-vue3/')">
+    <el-menu-item index="3" @click="goPath('/micro-vue3')">
       <el-icon><Setting /></el-icon>
       <span>Vue3子应用</span>
     </el-menu-item>

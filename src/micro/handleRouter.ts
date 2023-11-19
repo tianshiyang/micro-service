@@ -6,7 +6,6 @@ import { getNextRouter, getPrevRouter } from "./rewriteRouter"
 export const handleRouter = async () => {
   // 2. 匹配子应用
   const prevApp = getApps().find(item => getPrevRouter().startsWith(item.activeRule))
-  console.log(getPrevRouter(), 'getPrevRouter')
 
   // 2.1 获取当前路由的路径
   const nextRouter = getNextRouter()
@@ -31,7 +30,9 @@ export const handleRouter = async () => {
   container?.appendChild(template);
 
   
-  (window as any)['__POWERED_BY_QIANKUN__'] = true
+  (window as any)['__POWERED_BY_QIANKUN__'] = true;
+  // 解决子应用找不到静态资源文件，为webpack注入运行时的publicPath
+  (window as any)['__INJECTED_PUBLIC_PATH_BY_QIANKUN__'] = app.entry + "/";
 
   // 4.1 获取子应用的生命周期函数
   const appExports = await execScripts()
